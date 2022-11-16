@@ -29,7 +29,6 @@ module.exports = {
       }));
       return success(res, "Anda telah berhasil checkout😄");
     } catch (err) {
-      console.log(res.fields)
       return error(res, 500, "Internal Server Error");
     }
   },
@@ -56,7 +55,6 @@ module.exports = {
       }
       return res.json([{}]).status(200);
     } catch (err) {
-      console.log(err);
       return error(res, 500, "Internal Server Error");
     }
   },
@@ -79,7 +77,6 @@ module.exports = {
       const { id } = req.params;
       const { store_id, _id } = req.user;
       const { status } = req.query;
-      console.log(status);
       if (status === "Pending") {
         return error(res, 422, "Status pending tidak bisa diterapkan saat ini");
       }
