@@ -66,7 +66,6 @@ module.exports = {
       }
       return error(res, 401, "Email yang anda masukan tidak terdaftar");
     } catch (err) {
-      console.log(err);
       return error(res, 422, {
         error: true,
         message: err.message,
@@ -76,8 +75,7 @@ module.exports = {
   },
   checkOngkir: async (req, res) => {
     try {
-      const { from, to, courier } = req.body;
-      console.log(req.body);
+      const { from, to, courier = 'jne' } = req.body;
       const options = {
         method: "POST",
         url: "https://api.rajaongkir.com/starter/cost",
@@ -95,7 +93,6 @@ module.exports = {
       const response = await axios(options);
       return success(res, "", response?.data);
     } catch (err) {
-      console.log(err.response.data.rajaongkir);
       return res.status(400).json(err.response);
     }
   },
