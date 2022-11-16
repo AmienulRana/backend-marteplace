@@ -9,7 +9,6 @@ module.exports = {
       const store = await Store.findOne({ user_id: _id });
       return res.status(200).json(store);
     } catch (err) {
-      console.log(err);
       return error(res, 500, "Internal server error");
     }
   },
@@ -23,7 +22,6 @@ module.exports = {
         mobile_phone,
         store_status,
       } = req.body;
-      console.log(req.body)
       const findStore = await Store.findOne({ user_id: _id });
       if (!findStore) {
         const addStore = new Store({
@@ -67,7 +65,6 @@ module.exports = {
       }
       return error(res, 422, "Tidak Ada data yang berubah");
     } catch (err) {
-      console.log(err);
       return error(res, 422, "Internal server error | Gagal mengubah data");
     }
   },
