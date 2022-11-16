@@ -11,7 +11,6 @@ module.exports = {
       const newProducts = products.reverse().splice(0, 9);
       return res.status(200).json(newProducts);
     } catch (err) {
-      console.log(err);
       return error(res, 422, "Gagal menampilkan product");
     }
   },
@@ -46,7 +45,6 @@ module.exports = {
       }
       return error(res, 422, "Anda harus mengupload image product");
     } catch (err) {
-      console.log(err);
       if (req?.files?.length > 0) {
         req.files.map((file) => {
           fs.unlinkSync(`public/uploads/${file.filename}`);
@@ -69,7 +67,6 @@ module.exports = {
       }
       return error(res, 404, "Product yang anda cari tidak ditemukan");
     } catch (err) {
-      console.log(err);
       return error(res, 422, "Gagal menampilkan product", {
         fields: err.errors,
       });
@@ -133,7 +130,6 @@ module.exports = {
       }
       return error(res, 422, "Tidak ada ada product yang berubah");
     } catch (err) {
-      console.log(err);
       if (req?.files?.length > 0) {
         req.files.map((file) => {
           fs.unlinkSync(`public/uploads/${file.filename}`);
@@ -157,7 +153,6 @@ module.exports = {
         return success(res, "Berhasil Menghapus product");
       }
     } catch (err) {
-      console.log(err);
       return error(res, 500, "Gagal Menghapus product | Server Error 500");
     }
   },
