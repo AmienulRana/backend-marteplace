@@ -8,7 +8,6 @@ module.exports = {
     const token = header.split(" ")[1];
     jwt.verify(token, process.env.SECRET_KEY, function (err, decoded) {
       if (err) {
-        console.log(err);
         return error(
           res,
           401,
