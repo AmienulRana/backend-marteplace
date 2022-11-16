@@ -21,7 +21,6 @@ module.exports = {
         });
         
         if (findProductInMyCart) {
-          console.log(findMyCart)
           findProductInMyCart.products.filter(async (product) => {
             if (product._id === id_product) {
               const getProductNotUpdate = findProductInMyCart.products.filter(
@@ -88,7 +87,6 @@ module.exports = {
         return success(res, "Product berhasil ditambah ke keranjang");
       }
     } catch (err) {
-      console.log(err);
       return error(res, 422, "Gagal menambahkan product ke keranjang", {
         fields: err.errors,
       });
@@ -103,7 +101,6 @@ module.exports = {
       });
         return res.status(200).json(carts);
     } catch (err) {
-      console.log(err);
       return error(
         res,
         422,
@@ -155,7 +152,6 @@ module.exports = {
           else if(product._id === id && product.quantity === 1) {
             if(getProductNotDelete.length === 0){
               const deleteCart = await Cart.deleteOne({ user_id: _id, store_detail:  productModel.store_id });
-              console.log(deleteCart)
               if(deleteCart.deletedCount > 0){
                 return success(res, 'Berhasil menghapus product')
               }
@@ -175,7 +171,6 @@ module.exports = {
         });
       } 
     } catch (err) {
-      console.log(err);
       return error(
         res,
         500,
