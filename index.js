@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/images", express.static(path.join(__dirname, "public/uploads")));
 
-app.use('/', (req, res) => res.json({ message: "Welcome to Marketplace API"}))
+app.get('/', (req, res) => res.json({ message: "Welcome to Marketplace API"}))
 
 const api_version = "api/v1";
 
