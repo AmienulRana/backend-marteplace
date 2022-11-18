@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 require("dotenv").config();
 require("./db");
 const userRoute = require("./routes/users");
@@ -7,7 +8,6 @@ const ProductsRoute = require("./routes/products");
 const StoreRoute = require("./routes/store");
 const CartRoute = require("./routes/cart");
 const TransactionRoute = require("./routes/transaction");
-const cors = require("cors");
 const path = require("path");
 
 app.use(cors());
