@@ -45,6 +45,7 @@ module.exports = {
       }
       return error(res, 422, "Anda harus mengupload image product");
     } catch (err) {
+      console.log(err);
       if (req?.files?.length > 0) {
         req.files.map((file) => {
           fs.unlinkSync(`public/uploads/${file.filename}`);
