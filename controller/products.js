@@ -2,6 +2,27 @@ const fs = require("fs");
 const { error, success } = require("../response");
 const Product = require("../model/products");
 
+// / Import the functions you need from the SDKs you need
+// import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCCI6KMXGd2Iy8DSie9ZOCLbccxcJIv6DY",
+//   authDomain: "fir-61d81.firebaseapp.com",
+//   projectId: "fir-61d81",
+//   storageBucket: "fir-61d81.appspot.com",
+//   messagingSenderId: "601261690775",
+//   appId: "1:601261690775:web:9632eafc45a432d20a3ed2",
+//   measurementId: "G-2HYXT7HYP0"
+// };
+
+// Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
 module.exports = {
   getNewProduct: async (req, res) => {
     try {
